@@ -1,177 +1,177 @@
-// import React from 'react';
-// import {View, Image, TouchableOpacity, Text, StyleSheet} from 'react-native';
-// import {
-//   createBottomTabNavigator,
-//   BottomTabBar,
-// } from '@react-navigation/bottom-tabs';
-// import LinearGradient from 'react-native-linear-gradient';
+import React from 'react';
+import {View, Image, TouchableOpacity, Text, StyleSheet} from 'react-native';
+import {
+  createBottomTabNavigator,
+  BottomTabBar,
+} from '@react-navigation/bottom-tabs';
+import LinearGradient from 'react-native-linear-gradient';
 
-// import {Home} from '../screens';
-// import {CryptoDetail, Transaction,Settings} from '../screens';
-// import {COLORS, FONTS, icons} from '../constants';
+import {Home} from '../screens';
+import {CryptoDetail, Transaction,Settings} from '../screens';
+import {COLORS, FONTS, icons} from '../constants';
 
-// const Tab = createBottomTabNavigator();
-// const TabBarCustomButtom = ({children, onPress}) => {
-//   return (
-//     <TouchableOpacity
-//       style={{
-//         top: -30,
-//         justifyContent: 'center',
-//         alignItems: 'center',
-//         ...styles.shadow,
-//       }}
-//       onPress={onPress}>
-//       <LinearGradient
-//                 colors={[COLORS.primary,COLORS.secondary]} 
-//                 style={{
-//                     width:70,
-//                     height:70,
-//                     borderRadius:35
-//                 }}
+const Tab = createBottomTabNavigator();
+const TabBarCustomButtom = ({children, onPress}) => {
+  return (
+    <TouchableOpacity
+      style={{
+        top: -30,
+        justifyContent: 'center',
+        alignItems: 'center',
+        ...styles.shadow,
+      }}
+      onPress={onPress}>
+      <LinearGradient
+                colors={[COLORS.primary,COLORS.secondary]} 
+                style={{
+                    width:70,
+                    height:70,
+                    borderRadius:35
+                }}
                 
                 
-//                 >
-//                     {children}
-//                 </LinearGradient>
-//     </TouchableOpacity>
-//   );
-// };
+                >
+                    {children}
+                </LinearGradient>
+    </TouchableOpacity>
+  );
+};
 
-// const Tabs = () => {
-//   return (
-//     <Tab.Navigator
-//     >
-//       <Tab.Screen
-//         name="Home"
-//         component={Home}
-//         options ={{
-//           headerShown:false,
-//             tabBarIcon:({focused}) =>(
-//                 <View style={{alignItems:'center', justifyContent:'center'}}>
-//                     <Image
-//                     source={icons.home}
-//                     resizeMode='contain'
-//                     style={{
-//                         width:30,
-//                         height:30,
-//                         tintColor:focused ? COLORS.primary: COLORS.black
-//                     }}
+const Tabs = () => {
+  return (
+    <Tab.Navigator
+    >
+      <Tab.Screen
+        name="Home"
+        component={Home}
+        options ={{
+          headerShown:false,
+            tabBarIcon:({focused}) =>(
+                <View style={{alignItems:'center', justifyContent:'center'}}>
+                    <Image
+                    source={icons.home}
+                    resizeMode='contain'
+                    style={{
+                        width:30,
+                        height:30,
+                        tintColor:focused ? COLORS.primary: COLORS.black
+                    }}
 
-//                     />
-//                     <Text style={{color:focused ? COLORS.primary: COLORS.black, ...FONTS.body5}} >Home</Text>
-//                 </View>
-//             )
-//         }}
-//       />
-//       <Tab.Screen
-//         name="CryptoDetail"
-//         component={CryptoDetail}
-//         options ={{
-//             tabBarIcon:({focused}) =>(
-//                 <View style={{alignItems:'center', justifyContent:'center'}}>
-//                     <Image
-//                     source={icons.pie_chart}
-//                     resizeMode='contain'
-//                     style={{
-//                         width:30,
-//                         height:30,
-//                         tintColor:focused ? COLORS.primary: COLORS.black
+                    />
+                    <Text style={{color:focused ? COLORS.primary: COLORS.black, ...FONTS.body5}} >Home</Text>
+                </View>
+            )
+        }}
+      />
+      <Tab.Screen
+        name="CryptoDetail"
+        component={CryptoDetail}
+        options ={{
+            tabBarIcon:({focused}) =>(
+                <View style={{alignItems:'center', justifyContent:'center'}}>
+                    <Image
+                    source={icons.pie_chart}
+                    resizeMode='contain'
+                    style={{
+                        width:30,
+                        height:30,
+                        tintColor:focused ? COLORS.primary: COLORS.black
 
-//                     }}
+                    }}
 
-//                     />
-//                     <Text style={{color:focused ? COLORS.primary: COLORS.black, ...FONTS.body5}}    >Portifolio</Text>
-//                 </View>
-//             )
-//         }}
-//       />
-//       <Tab.Screen
-//         name="Transaction"
-//         component={Transaction}
+                    />
+                    <Text style={{color:focused ? COLORS.primary: COLORS.black, ...FONTS.body5}}    >Portifolio</Text>
+                </View>
+            )
+        }}
+      />
+      <Tab.Screen
+        name="Transaction"
+        component={Transaction}
 
-//         options ={{
-//             tabBarIcon:({focused}) =>(
-//                                          <Image
-//                     source={icons.transaction}
-//                     resizeMode='contain'
-//                     style={{
-//                         width:30,
-//                         height:30,
-//                         tintColor: COLORS.white
-//                     }}
+        options ={{
+            tabBarIcon:({focused}) =>(
+                                         <Image
+                    source={icons.transaction}
+                    resizeMode='contain'
+                    style={{
+                        width:30,
+                        height:30,
+                        tintColor: COLORS.white
+                    }}
 
-//                     />
+                    />
 
-//             ),
-//             tabBarButton:(props) => (
-//                 <TabBarCustomButtom
-//                 {...props}
-//                   />
-//             )
+            ),
+            tabBarButton:(props) => (
+                <TabBarCustomButtom
+                {...props}
+                  />
+            )
 
-//         }}
-//       />
-//       <Tab.Screen
-//         name="Prices"
-//         component={CryptoDetail}
+        }}
+      />
+      <Tab.Screen
+        name="Prices"
+        component={CryptoDetail}
 
-//         options ={{
-//             tabBarIcon:({focused}) =>(
-//                 <View style={{alignItems:'center', justifyContent:'center'}}>
-//                     <Image
-//                     source={icons.line_graph}
-//                     resizeMode='contain'
-//                     style={{
-//                         width:30,
-//                         height:30,
-//                         tintColor:focused ? COLORS.primary: COLORS.black
+        options ={{
+            tabBarIcon:({focused}) =>(
+                <View style={{alignItems:'center', justifyContent:'center'}}>
+                    <Image
+                    source={icons.line_graph}
+                    resizeMode='contain'
+                    style={{
+                        width:30,
+                        height:30,
+                        tintColor:focused ? COLORS.primary: COLORS.black
 
-//                     }}
+                    }}
 
-//                     />
-//                     <Text style={{color:focused ? COLORS.primary: COLORS.black, ...FONTS.body5}}    >Prices</Text>
-//                 </View>
-//             )
-//         }}
-//       />
-//       <Tab.Screen
-//         name="Settings"
-//         component={Settings}
-//         options ={{
-//             tabBarIcon:({focused}) =>(
-//                 <View style={{alignItems:'center', justifyContent:'center'}}>
-//                     <Image
-//                     source={icons.settings}
-//                     resizeMode='contain'
-//                     style={{
-//                         width:30,
-//                         height:30,
-//                         tintColor:focused ? COLORS.primary: COLORS.black
+                    />
+                    <Text style={{color:focused ? COLORS.primary: COLORS.black, ...FONTS.body5}}    >Prices</Text>
+                </View>
+            )
+        }}
+      />
+      <Tab.Screen
+        name="Settings"
+        component={Settings}
+        options ={{
+            tabBarIcon:({focused}) =>(
+                <View style={{alignItems:'center', justifyContent:'center'}}>
+                    <Image
+                    source={icons.settings}
+                    resizeMode='contain'
+                    style={{
+                        width:30,
+                        height:30,
+                        tintColor:focused ? COLORS.primary: COLORS.black
 
-//                     }}
+                    }}
 
-//                     />
-//                     <Text style={{color:focused ? COLORS.primary: COLORS.black, ...FONTS.body5}}    >Settings</Text>
-//                 </View>
-//             )
-//         }}
-//       />
-//     </Tab.Navigator>
-//   );
-// };
+                    />
+                    <Text style={{color:focused ? COLORS.primary: COLORS.black, ...FONTS.body5}}    >Settings</Text>
+                </View>
+            )
+        }}
+      />
+    </Tab.Navigator>
+  );
+};
 
-// const styles = StyleSheet.create({
-//   shadow: {
-//     shadowColor: COLORS.primary,
-//     shadowOffset: {
-//       width: 0,
-//       height: 10,
-//     },
-//     shadowOpacity: 0.25,
-//     shadowRadius: 3.84,
+const styles = StyleSheet.create({
+  shadow: {
+    shadowColor: COLORS.primary,
+    shadowOffset: {
+      width: 0,
+      height: 10,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
 
-//     elevation: 5,
-//   },
-// });
+    elevation: 5,
+  },
+});
 
-// export default Tabs;
+export default Tabs;
